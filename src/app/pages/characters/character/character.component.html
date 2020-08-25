@@ -1,0 +1,35 @@
+<!-- 
+<div class="envuelto">
+<div class="card"  *ngFor="let per of task">
+    <img src="{{per.image}}" class="card-img-top" alt="...">
+    <div class="card-body" >
+      <h5 class="card-title"><p>{{per.name}}</p></h5>
+      <div class="card-text">
+          <p>Estado: {{per.status}}</p>
+          <p>Especie: {{per.species}}</p>
+          <p>Locacion: {{per.location.name}}</p>
+          <p>Origen: {{per.origin.name}}</p>
+      </div>
+      <a href="locations" class="btn btn-primary">Todas las locaciones</a>
+    </div>
+  </div>
+</div> -->
+
+  <div class="cols" *ngFor="let per of task">
+			<div class="col" ontouchstart="this.classList.toggle('hover');">
+				<div class="container">
+        <div class="front" style="background-image: url({{per.image}});height: 100%;">
+						<div class="inner">
+							<p>{{per.name}}</p>
+						</div>
+					</div>
+					<div class="back">
+						<div class="inner">
+						  <p>Locacion: {{per.location.name}}</p>
+						  <p>Especie: {{per.species}}</p>
+						  <p>Estado: {{per.status}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+				</div>
