@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
 export class ListadoService {
 
   constructor( private http: HttpClient) { }
-
+  api_url= 'https://rickandmortyapi.com/api/';
   getAllListado(code: string): Observable <any> {
-    const path = environment.api_url  + code;
+    const path = this.api_url  + code;
     return this.http.get(path);
   }
 }

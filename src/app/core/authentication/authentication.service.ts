@@ -14,12 +14,13 @@ export class AuthenticationService {
   token;
   isLogged = false;
 
+  pi_url= 'http://icaro.cdgweb.com.ar/public/';
+
   constructor(private http: HttpClient, private router: Router) {
     const token = localStorage.getItem('icaro_token');
     if (token) {
       this.token = token;
       this.isLogged = true;
-      this.router.navigate(['dashboard/tasks']);
     }
    }
 
@@ -29,13 +30,13 @@ export class AuthenticationService {
       user_password: pass,
     };
 
-    this.http.post(environment.pi_url + 'login' , {data}).subscribe(
+    this.http.post(this.pi_url + 'login' , {data}).subscribe(
       res => {
       let response: any = res;
       this.token = response.token;
       this.isLogged = true;
       localStorage.setItem('icaro_token' , this.token);
-      this.router.navigate(['dashboard/tasks']);
+      this.router.navigate(['home']);
     }, err => {
       console.log(err);
     });
@@ -44,6 +45,6 @@ export class AuthenticationService {
     this.token = null;
     this.isLogged = false;
     localStorage.removeItem('icaro_token');
-    this.router.navigate(['user/login']);
+    this.router.navigate(['login']);
   }
 }
