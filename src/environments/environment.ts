@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api_url: 'https://rickandmortyapi.com/api/',
-  pi_url: 'https://rickandmortyapi.com/api/',
+  pi_url: 'http://icaro.cdgweb.com.ar/public/',
 };
 
 /*
